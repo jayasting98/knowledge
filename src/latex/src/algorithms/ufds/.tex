@@ -1,0 +1,31 @@
+\subsection{Union-Find Disjoint-Set (UFDS)}
+
+The data structure is initialized to have a parents list and a ranks list. The rank is an upper bound of the height of the tree. Each set is initially its own parent and has a rank of 0.
+
+\begin{minipage}{\textwidth}
+    \lstinputlisting[language=Python, firstline=5, lastline=7]{algorithms/ufds/.py}
+\end{minipage}
+
+\subsubsection{Find}
+
+Path-compression is used when finding the set.
+
+Time complexity: $O(\alpha(n))$ (amortized)
+
+where $\alpha(n)$ is the inverse Ackermann function
+
+\begin{minipage}{\textwidth}
+    \lstinputlisting[language=Python, firstline=9, lastline=12]{algorithms/ufds/.py}
+\end{minipage}
+
+\subsubsection{Union}
+
+The union-by-rank heuristic is used when unioning two sets.
+
+Time complexity: $O(\alpha(n))$ (amortized)
+
+where $\alpha(n)$ is the inverse Ackermann function
+
+\begin{minipage}{\textwidth}
+    \lstinputlisting[language=Python, firstline=14, lastline=24]{algorithms/ufds/.py}
+\end{minipage}

@@ -1,0 +1,45 @@
+\subsubsection{Single-Source Shortest Paths (SSSP)}
+
+\paragraph{Breadth-first search} Only for graphs where all edges have the same weight or are unweighted
+
+Time complexity: $O(|V| + |E|)$
+
+\begin{minipage}{\textwidth}
+    \lstinputlisting[language=Python, firstline=9, lastline=22]{algorithms/graphs/single_source_shortest_paths/.py}
+\end{minipage}
+
+\paragraph{One-pass Bellman-Ford algorithm} Only for weighted directed acyclic graphs (DAGs)
+
+Time complexity: $O(|V| + |E|)$
+
+\begin{minipage}{\textwidth}
+    \lstinputlisting[language=Python, firstline=42, lastline=55]{algorithms/graphs/single_source_shortest_paths/.py}
+\end{minipage}
+
+\paragraph{Dijkstra's algorithm}
+
+\subparagraph{Standard} Only for graphs where all edges are non-negative
+
+Time complexities:
+
+\begin{itemize}
+    \item $O(|E| \cdot T_{\text{dk}} + |V| \cdot T_{\text{em}})$ in general where $T_{\text{dk}}$ and $T_{\text{em}}$ are the time complexities of decreasing a key and extracting the minimum respectively
+    \item $O(|E| + |V| \log |V|)$ with a data structure like Fibonacci heap where $T_{\text{dk}}$ is $O(1)$
+    \item $O((|E| + |V|) \log |V|)$ with a data structure like binary search tree where $T_{\text{dk}}$ is $O(\log |V|)$
+\end{itemize}
+
+\subparagraph{Modified} Only for graphs without negative cycles
+
+Time complexity: $O(|E| \log |E|)$ with a data structure like binary heap with lazy deletion
+
+\begin{minipage}{\textwidth}
+    \lstinputlisting[language=Python, firstline=58, lastline=77]{algorithms/graphs/single_source_shortest_paths/.py}
+\end{minipage}
+
+\paragraph{Bellman-Ford algorithm}
+
+Time complexity: $O(|V||E|) = O(|V|^{3})$
+
+\begin{minipage}{\textwidth}
+    \lstinputlisting[language=Python, firstline=80, lastline=97]{algorithms/graphs/single_source_shortest_paths/.py}
+\end{minipage}

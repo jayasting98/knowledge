@@ -2,7 +2,9 @@ import heapq
 from typing import Self
 
 
-def do_prims_algorithm(adjacencies: list[dict[int, int]]) -> list[dict[int, int]]:
+def do_prims_algorithm(
+    adjacencies: list[dict[int, int]],
+) -> list[dict[int, int]]:
     n = len(adjacencies)
     seen = {0}
     min_heap: list[tuple[int, int, int]] = list()
@@ -44,7 +46,9 @@ class Ufds:
                 self._ranks[set_x] += 1
 
 
-def do_kruskals_algorithm(adjacencies: list[dict[int, int]]) -> list[dict[int, int]]:
+def do_kruskals_algorithm(
+    adjacencies: list[dict[int, int]],
+) -> list[dict[int, int]]:
     n = len(adjacencies)
     edges = list()
     for u, neighbors in enumerate(adjacencies):

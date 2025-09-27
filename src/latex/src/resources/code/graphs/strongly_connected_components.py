@@ -1,18 +1,4 @@
-def do_dfs_topological_sorting(adjacencies: list[set[int]]) -> list[int]:
-    n = len(adjacencies)
-    seen = set()
-    reversed_nodes = list()
-    def do_dfs(u: int) -> None:
-        if u in seen:
-            return
-        seen.add(u)
-        for v in adjacencies[u]:
-            do_dfs(v)
-        reversed_nodes.append(u)
-    for u in range(n):
-        do_dfs(u)
-    sorted_nodes = reversed_nodes[::-1]
-    return sorted_nodes
+from graphs import topological_sorting
 
 
 def transpose_graph(adjacencies: list[set[int]]) -> list[set[int]]:
@@ -25,7 +11,7 @@ def transpose_graph(adjacencies: list[set[int]]) -> list[set[int]]:
 
 
 def do_kosarajus_algorithm(adjacencies: list[set[int]]) -> int:
-    sorted_nodes = do_dfs_topological_sorting(adjacencies)
+    sorted_nodes = topological_sorting.do_dfs_topological_sorting(adjacencies)
     transposed_adjacencies = transpose_graph(adjacencies)
     seen = set()
     def do_dfs(u: int) -> None:
